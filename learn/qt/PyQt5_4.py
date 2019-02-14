@@ -10,6 +10,7 @@ from random import randint
 
 from PyQt5.QtWidgets import QWidget, QApplication, QPushButton, QLineEdit, QMessageBox
 
+
 # 猜数字游戏
 class Ico(QWidget):
 
