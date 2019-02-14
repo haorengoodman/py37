@@ -47,7 +47,7 @@ class Ico(QWidget):
             QMessageBox.about(self, "结果", "猜对了！")
 
     def closeEvent(self, event):
-        reply = QMessageBox.question(self, '确认', '确认退出吗', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        reply = QMessageBox.question(self, 'title', '确认退出吗', QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
         if reply == QMessageBox.Yes:
             event.accept()
         else:
