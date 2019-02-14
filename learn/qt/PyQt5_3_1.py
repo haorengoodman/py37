@@ -19,7 +19,7 @@ class Ico(QWidget):
     def initUI(self):
         self.setWindowTitle("QT Learning")
         self.setGeometry(300, 200, 300, 300)
-        self.setWindowIcon(QIcon("‎/Users/gaotao/Downloads/huxpro.github.io-master/portfolio/images/logo-react.png"))
+        self.setWindowIcon(QIcon("D:/aaaa/image/111057717_title0h.jpg"))
         self.show()
 
 

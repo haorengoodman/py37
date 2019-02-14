@@ -8,17 +8,15 @@
 import sys
 from random import randint
 
-from PyQt5.QtCore import QCoreApplication
 from PyQt5.QtWidgets import QWidget, QApplication, QPushButton, QLineEdit, QMessageBox
-
 
 # 猜数字游戏
 class Ico(QWidget):
-    text: QLineEdit
-    btn: QPushButton
 
     def __init__(self):
         super().__init__()
+        self.text = QLineEdit('在这里输入数字', self)
+        self.btn = QPushButton("我猜", self)
         self.initUI()
         self.num = randint(1, 100)
 
@@ -26,11 +24,9 @@ class Ico(QWidget):
         self.setWindowTitle("猜数字")
         self.setGeometry(300, 300, 300, 220)
 
-        self.btn = QPushButton("我猜", self)
         self.btn.setGeometry(115, 150, 70, 30)
         self.btn.clicked.connect(self.showMessage)
 
-        self.text = QLineEdit('在这里输入数字', self)
         self.text.selectAll()
         self.text.setFocus()
         self.text.setGeometry(75, 50, 150, 30)
