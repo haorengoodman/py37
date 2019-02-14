@@ -26,6 +26,7 @@ class Ico(QWidget):
         self.setGeometry(300, 300, 300, 220)
 
         self.btn.setGeometry(115, 150, 70, 30)
+        self.btn.setToolTip('<b>点击这里猜数字</b>')
         self.btn.clicked.connect(self.showMessage)
 
         self.text.selectAll()
