@@ -11,7 +11,7 @@ import sys
 from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QPushButton, QMessageBox
 
 
-# 剪刀、石头、布
+#  剪刀、石头、布
 class Example(QWidget):
 
     def __init__(self):
