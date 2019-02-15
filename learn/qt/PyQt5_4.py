@@ -34,20 +34,34 @@ class Ico(QWidget):
 
         self.show()
 
+    def checkNum(self, numStr):
+        flag = False
+        try:
+            int(numStr)
+            flag = True
+        except ValueError:
+            print()
+        return flag
+
     def showMessage(self):
-        guessNum = int(self.text.text())
-        print("输入数字为：{0}".format(guessNum))
-        if guessNum > self.num:
-            QMessageBox.about(self, "结果", "猜大了！")
-            self.text.setFocus()
-        elif guessNum < self.num:
-            QMessageBox.about(self, "结果", "猜小了！")
-            self.text.setFocus()
+        guessText = self.text.text()
+        if self.checkNum(guessText):
+            guessNum = int(guessText)
+            print("输入数字为：{0}".format(guessNum))
+            if guessNum > self.num:
+                QMessageBox.about(self, "结果", "老哥，猜大了！")
+                self.text.setFocus()
+            elif guessNum < self.num:
+                QMessageBox.about(self, "结果", "老哥，猜小了！")
+                self.text.setFocus()
+            else:
+                QMessageBox.about(self, "结果", "老哥，猜对了！")
         else:
-            QMessageBox.about(self, "结果", "猜对了！")
+            QMessageBox.about(self, "结果", "老哥，猜数字！")
+            self.text.setFocus()
 
     def closeEvent(self, event):
-        reply = QMessageBox.question(self, 'title', '确认退出吗', QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
+        reply = QMessageBox.question(self, 'title', '哥，确认退出吗', QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
         if reply == QMessageBox.Yes:
             event.accept()
         else:
