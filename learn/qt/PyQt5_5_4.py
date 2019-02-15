@@ -25,7 +25,7 @@ class Example(QWidget):
 
     def initUI(self):
         self.setGeometry(200, 200, 300, 300)
-        self.setWindowTitle('学点编程吧')
+        self.setWindowTitle('自定义信号')
         # 信号与槽位关联
         self.s.showmouse.connect(self.about) # 信号和槽位关联
         self.show()
