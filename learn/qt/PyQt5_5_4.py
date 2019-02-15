@@ -12,7 +12,7 @@ from PyQt5.QtGui import QPainter
 from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QMessageBox
 
 
-# 自定义信号源
+#  自定义信号源
 class Signal(QObject):
     showmouse = pyqtSignal()
 
