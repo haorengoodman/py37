@@ -12,7 +12,7 @@ from PyQt5.QtGui import QPainter
 from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QMessageBox, QPushButton, QHBoxLayout, QVBoxLayout
 
 
-# 箱式布局（水平布局 + 垂直布局）
+# 自定义  水平布局、垂直布局
 class Example(QWidget):
 
     def __init__(self):
