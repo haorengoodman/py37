@@ -23,7 +23,7 @@ class Example(QWidget):
     def initUI(self):
         # 设置窗口属性
         self.setGeometry(200, 200, 300, 300)
-        self.setWindowTitle('自定义布局')
+        self.setWindowTitle('格子布局')
         # 创建并设置格子布局
         grid = QGridLayout()
         self.setLayout(grid)
