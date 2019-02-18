@@ -39,7 +39,6 @@ class Example(QWidget):
                  '0', '.', '=', '+']
         positions = [(i,j) for i in range(4,9) for j in range(4,8)]
         for position,name in zip(positions,names):
-            print(position[0],name)
             if name == '':
                 continue
             button = QPushButton(name)
