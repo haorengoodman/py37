@@ -2,8 +2,8 @@
 
 # -*- coding: utf-8 -*-
 
-# @File    : PyQt5_6_2.py
-# @Date    : 2019-02-16
+# @File    : PyQt5_6_3.py
+# @Date    : 2019-02-18
 # @Author  : gaotao
 import sys
 from PyQt5.QtCore import QObject, pyqtSignal
