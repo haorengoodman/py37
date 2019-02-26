@@ -5,7 +5,7 @@
 # @File    : WordCloudDemo.py
 # @Software: PyCharm
 import sys
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QPicture
 import wordcloud
 import jieba
 import matplotlib.pyplot as plt
@@ -60,6 +60,7 @@ class Example(QMainWindow):
         ran_str = ''.join(random.sample(string.ascii_letters + string.digits, 8))
         imagePath = "./files/"+ran_str+".jpg"
         wc.to_file(imagePath)
+        # QPicture、QImage、QPicture
         self.label.setPixmap(QPixmap(imagePath))
         self.label.show()
 
