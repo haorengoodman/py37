@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/2/25 16:32
 # @Author  : journal
-# @File    : WordCloudDemo.py
+# @File    : WordCloud_CN.py
 # @Software: PyCharm
 import sys
 from PyQt5.QtGui import QPixmap, QPicture
@@ -44,7 +44,7 @@ class Example(QMainWindow):
         self.show()
 
     def open_file(self):
-        fname = QFileDialog.getOpenFileName(self,caption="打开文件",directory="./files/",filter='(txt (*.txt))')
+        fname = QFileDialog.getOpenFileName(self,caption="打开文件",directory="./../test/files/",filter='(txt (*.txt))')
         if fname[0]:
             with open(fname[0],"r",encoding="utf-8",errors="ignore") as f:
                 self.fileContent = f.read()
@@ -53,12 +53,12 @@ class Example(QMainWindow):
     # C:\\Windows\\Fonts\\msyhbd.ttf windows 系统字体默认存储位置
     def create_img(self):
         cutResult = jieba.lcut(self.fileContent)
-        wc = wordcloud.WordCloud(background_color="white",width=280,height=360,font_path="./files/msyh.ttf").generate(" ".join(cutResult))
+        wc = wordcloud.WordCloud(background_color="white",width=280,height=360,font_path="./../test/files/msyh.ttf").generate(" ".join(cutResult))
         # plt.imshow(wc)
         # plt.axis("off")
         # plt.show()
         ran_str = ''.join(random.sample(string.ascii_letters + string.digits, 8))
-        imagePath = "./files/"+ran_str+".jpg"
+        imagePath = "./../test/files/"+ran_str+".jpg"
         wc.to_file(imagePath)
         # QPixmap、QImage、QPicture
         self.label.setPixmap(QPixmap(imagePath))
