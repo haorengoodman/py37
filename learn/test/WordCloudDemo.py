@@ -60,7 +60,7 @@ class Example(QMainWindow):
         ran_str = ''.join(random.sample(string.ascii_letters + string.digits, 8))
         imagePath = "./files/"+ran_str+".jpg"
         wc.to_file(imagePath)
-        # QPicture、QImage、QPicture
+        # QPixmap、QImage、QPicture
         self.label.setPixmap(QPixmap(imagePath))
         self.label.show()
 
