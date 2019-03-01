@@ -17,7 +17,7 @@ class Example(QWidget):
 
     def initUI(self):
         self.resize(380,180)
-        self.setWindowTitle('微信公众号：学点编程吧--自定义密码输入对话框')
+        self.setWindowTitle('自定义密码输入对话框')
 
         self.lb1 = QLabel('密码在此显示...',self)
         self.lb1.move(20,20)
