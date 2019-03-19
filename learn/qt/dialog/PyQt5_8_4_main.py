@@ -6,7 +6,7 @@
 # @Software: PyCharm
 from PyQt5.QtWidgets import QWidget, QInputDialog, QLabel, QPushButton, QLineEdit, QApplication
 import sys
-from learn.qt.PyQt5_8_4 import PasswdDialog
+from learn.qt.dialog.PyQt5_8_4 import PasswdDialog
 
 __author__ = 'journal'
 
