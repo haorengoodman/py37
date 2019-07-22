@@ -5,6 +5,11 @@
 # @File    : Note_3_6_impl.py
 # @Software: PyCharm
 
+
+# **************************
+# ******** 反向传播 *********
+# **************************
+
 # step_0: 倒入模块，生成模拟数据
 import tensorflow as tf
 import numpy as np
@@ -33,9 +38,10 @@ y = tf.matmul(a, tf.Variable(w2))
 
 # step_2: 定义损失函数及 反向传播方法
 loss = tf.reduce_mean(tf.square(y - y_))
-# train_step = tf.train.GradientDescentOptimizer(0.001).minimize(loss)
+# 反向传播方法 : 目标是为了优化参数 w1 和 w2，减小loss
+train_step = tf.train.GradientDescentOptimizer(0.001).minimize(loss)
 # train_step = tf.train.MomentumOptimizer(0.001, 0.9).minimize(loss)
-train_step = tf.train.AdamOptimizer(0.001).minimize(loss)
+# train_step = tf.train.AdamOptimizer(0.001).minimize(loss)
 
 # step_3: 生成会话，训练 STEPS 轮
 with tf.Session() as session:
