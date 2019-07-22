@@ -8,6 +8,10 @@
 import tensorflow as tf
 
 
+# **************************
+# ******** 前向传播 *********
+# **************************
+
 # 使用 placeholder 定义输入
 # 定义输入、参数、向前传播过程
 def practice_1_param(input_x):
