@@ -12,10 +12,8 @@ import re
 import json
 
 from PyQt5.QtWidgets import QApplication
-from pandas.core import config_init
-from pip._vendor import requests
 
-from learn.weather.my_ui import my_ui
+from practice.weather import my_ui
 
 
 def read_file(path):

@@ -53,7 +53,7 @@ class Example(QMainWindow):
     # C:\\Windows\\Fonts\\msyhbd.ttf windows 系统字体默认存储位置
     def create_img(self):
         cutResult = jieba.lcut(self.fileContent)
-        wc = wordcloud.WordCloud(background_color="white",width=280,height=360,font_path="./../test/files/msyh.ttf").generate(" ".join(cutResult))
+        wc = wordcloud.WordCloud(background_color="white", width=280, height=360, font_path="../../learn/test/files/msyh.ttf").generate(" ".join(cutResult))
         # plt.imshow(wc)
         # plt.axis("off")
         # plt.show()
