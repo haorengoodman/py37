@@ -11,34 +11,37 @@ import sys
 
 import pdfkit
 from PyQt5.QtCore import QThread, pyqtSignal
-from PyQt5.QtGui import QColor
 from PyQt5.QtWidgets import QLabel, QFormLayout, QApplication, QLineEdit, QWidget, QPushButton, \
     QHBoxLayout, QVBoxLayout, QMessageBox
 
 from practice.HTML2PDF.RoundProgressBar import CircleProgressBar
 
 
+def get_desk_p():
+    return os.path.join(os.path.expanduser('~'), "Desktop")
+
+
 class MyWidget(QWidget):
     def __init__(self):
         super().__init__()
+        self.process_bar = CircleProgressBar(self)
         self.util = MyUtil()
         self.util.my_signal.connect(self.stop_process_bar)
         self.lable_0 = QLabel("url:")
         self.line_text_0 = QLineEdit("https://zhuanlan.zhihu.com/p/94608155")
         self.lable_1 = QLabel("targetPath:")
-        self.line_text_1 = QLineEdit(self.get_desk_p())
+        self.line_text_1 = QLineEdit(get_desk_p())
         self.btn_0 = QPushButton("submit")
         self.initUI()
 
     def initUI(self):
         self.setWindowTitle("HTML2PDF")
         self.setGeometry(70, 120, 500, 350)
-        formLayout = QFormLayout()
-        formLayout.addRow(self.lable_0, self.line_text_0)
-        formLayout.addRow(self.lable_1, self.line_text_1)
+        form_layout = QFormLayout()
+        form_layout.addRow(self.lable_0, self.line_text_0)
+        form_layout.addRow(self.lable_1, self.line_text_1)
 
         hbox_0 = QHBoxLayout()
-        self.process_bar = CircleProgressBar(self)
         # self.process_bar = CircleProgressBar(self, color=QColor(255, 0, 0), clockwise=False)
         # self.process_bar = CircleProgressBar(self, styleSheet="""qproperty-color: rgb(0, 255, 0);""")
         self.process_bar.hide()
@@ -51,7 +54,7 @@ class MyWidget(QWidget):
         self.btn_0.clicked.connect(self.submit_click)  # 绑定事件
 
         vbox = QVBoxLayout()
-        vbox.addLayout(formLayout)
+        vbox.addLayout(form_layout)
         vbox.addStretch(1)
         vbox.addLayout(hbox_0)
         vbox.addStretch(3)
@@ -61,8 +64,6 @@ class MyWidget(QWidget):
         self.show()
 
     # 获取桌面地址
-    def get_desk_p(self):
-        return os.path.join(os.path.expanduser('~'), "Desktop")
 
     def submit_click(self):
         self.process_bar.show()
@@ -71,7 +72,7 @@ class MyWidget(QWidget):
         print(f'url={url} \ntargetPath={to_file}')
         self.util.flag = True
         self.util.url = url
-        self.util.to_file = to_file+"\\HTML2PDF.pdf"
+        self.util.to_file = to_file + "\\HTML2PDF.pdf"
         self.util.start()
 
     def stop_process_bar(self, signal_value):
@@ -83,6 +84,7 @@ class MyWidget(QWidget):
 class MyUtil(QThread):
     my_signal = pyqtSignal(bool)  # 1
     flag = False
+
     def url_2_pdf(self):
         # 将 wkhtmltopdf.exe 程序绝对路径传入config对象
         path_wkthmltopdf = 'D:\\myPrograms\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'
@@ -107,4 +109,3 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     myWidget = MyWidget()
     sys.exit(app.exec_())
-
